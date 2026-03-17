@@ -19,7 +19,7 @@ const Home = () => {
 
             {/* Heading */}
             <h1 className="h1 mb-6">
-              Hello I'm <br /> <span className="text-accent">Uzair Riasat</span>
+              Hello I&apos;m <br /> <span className="text-accent">Uzair Riasat</span>
             </h1>
 
             {/* Description */}
