@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import { FiSend, FiMessageCircle, FiX } from "react-icons/fi"
 import ReactMarkdown from "react-markdown"
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 const getThreadId = (): string => {
   if (typeof window !== "undefined") {
     let threadId = localStorage.getItem("chat_thread_id");
@@ -48,7 +49,7 @@ export default function Chatbot() {
     setLoading(true)
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
