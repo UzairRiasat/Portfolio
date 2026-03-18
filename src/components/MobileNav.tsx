@@ -20,9 +20,7 @@ const MobileNav = () => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setOpen(false);
-    setTimeout(() => {
-      router.push(path);
-    }, 50);
+    router.push(path);
   };
 
   return (
