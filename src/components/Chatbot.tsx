@@ -3,7 +3,9 @@ import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import { FiSend, FiMessageCircle, FiX } from "react-icons/fi"
 import ReactMarkdown from "react-markdown"
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
 const getThreadId = (): string => {
   if (typeof window !== "undefined") {
     let threadId = localStorage.getItem("chat_thread_id");
@@ -105,7 +107,7 @@ export default function Chatbot() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-80 h-96 bg-gray-900 rounded-2xl shadow-lg flex flex-col"
+          className="w-[90vw] max-w-80 sm:w-80 h-96 bg-gray-900 rounded-2xl shadow-lg flex flex-col"
         >
           {/* Header */}
           <div className="bg-gray-700 text-white p-3 rounded-t-2xl flex justify-between items-center">
