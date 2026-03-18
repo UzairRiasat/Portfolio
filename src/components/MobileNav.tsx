@@ -22,7 +22,7 @@ const MobileNav = () => {
     setOpen(false);
     setTimeout(() => {
       router.push(path);
-    }, 100);
+    }, 50);
   };
 
   return (
