@@ -1,29 +1,28 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Key } from 'lucide-react';
 import { usePathname } from 'next/navigation'
-import Stairs from './Stairs';
-
+import Stairs from './Stairs'
 
 const StairTransition = () => {
-const pathname = usePathname();
+  const pathname = usePathname()
+
   return (
-    <>
     <AnimatePresence mode="wait">
       <div key={pathname}>
-        <div className='h-screen w-screen fixed top-0 left-0 right-0
-         pointer-events-none z-40 flex'>
-         <Stairs/>
+        {/* Stairs overlay – covers entire viewport */}
+        <div className="fixed inset-0 z-40 pointer-events-none flex">
+          <Stairs />
         </div>
 
-        <motion.div className='h-screen w-screen fixed bg-primary top-0 pointer-events-none'
-          initial={{opacity:1}}
-          animate={{
-            opacity:0, 
-            transition:{delay: 0.005, duration: 0.04, ease:"easeInOut"}}}/>
-      </div>   
+        {/* Fade overlay */}
+        <motion.div
+          className="fixed inset-0 bg-primary pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ delay: 0.005, duration: 0.04, ease: 'easeInOut' }}
+        />
+      </div>
     </AnimatePresence>
-    </>
   )
 }
 
