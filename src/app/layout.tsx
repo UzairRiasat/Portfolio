@@ -14,7 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Uzair Riasat - Backend Developer & AI Engineer",
   description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems. Explore projects, skills, and chat with the AI assistant.",
-  icons: null,
+  icons: {
+    icon: '/icon.svg?v=2',
+  },
 };
 
 export default function RootLayout({
