@@ -9,7 +9,7 @@ const StairTransition = () => {
   return (
     <AnimatePresence mode="wait">
       <div key={pathname}>
-        {/* Stairs overlay – covers entire viewport */}
+        {/* Stairs overlay */}
         <div className="fixed inset-0 z-40 pointer-events-none flex">
           <Stairs />
         </div>
