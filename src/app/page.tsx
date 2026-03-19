@@ -69,9 +69,10 @@ const Home = () => {
           </div>
 
         </div>
+      </div>      
+      <div className="pb-12">
+        <Stats/>   
       </div>
-
-      <Stats />
       <Chatbot />
 
     </section>
