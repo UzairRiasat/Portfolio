@@ -15,7 +15,11 @@ export const metadata: Metadata = {
   title: "Uzair Riasat - Backend Developer & AI Engineer",
   description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems. Explore projects, skills, and chat with the AI assistant.",
   icons: {
-    icon: '/icon.svg?v=2',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -25,8 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/icon.svg?v=2" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/icon.svg?v=2" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className={jetbrainsMono.variable}>
         <Header/>
