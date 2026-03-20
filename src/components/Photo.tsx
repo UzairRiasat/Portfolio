@@ -8,7 +8,7 @@ const Photo = () => {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 0.1, duration: 0.4, ease: "easeOut" }
+          transition: { delay: 0.9, duration: 0.4, ease: "easeOut" }
         }}
         className="relative"
       >
@@ -17,7 +17,7 @@ const Photo = () => {
           animate={{
             opacity: 1,
             y: -10,
-            transition: { delay: 0.2, duration: 0.45, ease: "easeOut" }
+            transition: { delay: 0.9, duration: 0.45, ease: "easeOut" }
           }}
           className={`
             w-[340px] h-[360px] xl:w-[480px] xl:h-[520px]
