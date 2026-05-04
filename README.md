@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Uzair Riasat — Portfolio
+
+A personal portfolio website built with **Next.js** (frontend) and **FastAPI + LangGraph** (backend), showcasing my work as a Backend & AI Developer.
+
+🌐 **Live:** [uzairriasat.netlify.app](https://uzairriasat.netlify.app)
+
+---
+
+## About
+
+This portfolio highlights my experience designing and building scalable backend systems and AI-powered applications. It features a contact form powered by a FastAPI backend, and an AI agent built with LangGraph and LangChain under the hood.
+
+---
+
+## Tech Stack
+
+### Frontend
+- [Next.js](https://nextjs.org/) — React framework with App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+### Backend
+- [FastAPI](https://fastapi.tiangolo.com/) — high-performance Python web framework
+- [LangChain](https://www.langchain.com/) & [LangGraph](https://www.langchain.com/langgraph) — AI agent orchestration
+- OpenAI API — LLM integration
+- Uvicorn — ASGI server
+- SQLAlchemy — ORM
+- Python-dotenv — environment management
+
+### Deployment
+- **Frontend:** Netlify
+- **Backend:** Render
+
+---
+
+## Project Structure
+
+```
+Portfolio/
+├── src/                  # Next.js app source
+├── public/               # Static assets
+├── backend/              # FastAPI backend & AI agent
+├── .github/workflows/    # CI/CD pipelines
+├── requirements.txt      # Python dependencies
+├── package.json          # Node dependencies
+├── next.config.mjs
+├── tailwind.config.ts
+└── render.yaml           # Render deployment config
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- Python 3.10+
+
+### Frontend
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# Navigate to backend directory
+cd backend
 
-## Learn More
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-To learn more about Next.js, take a look at the following resources:
+# Install dependencies
+pip install -r requirements.txt
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Copy and configure environment variables
+cp .env.example .env
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Run the server
+uvicorn main:app --reload
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Create a `.env` file in the `backend/` directory with the following:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
+
+---
+
+## Deployment
+
+| Service | Platform | Config |
+|---------|----------|--------|
+| Frontend | Netlify | Auto-deploy from `main` branch |
+| Backend | Render | `render.yaml` |
+
+---
+
+## Contact
+
+Feel free to reach out through the contact form on the [live site](https://uzairriasat.netlify.app/contact).
