@@ -93,42 +93,44 @@ export default function Chatbot() {
   if (!mounted) return null
 
   return (
-    <div className="fixed bottom-4 right-5 xl:right-10 z-50 animate-in fade-in duration-500">
+    <div className="fixed bottom-6 right-5 xl:right-10 z-50 animate-in fade-in duration-500">
       {!open ? (
         <button
           onClick={() => setOpen(true)}
-          className="group relative bg-accent text-primary rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center gap-2 px-4 py-2 animate-pulse-glow"
+          className="group relative bg-accent text-primary rounded-2xl shadow-glow hover:shadow-glow-sm transition-all duration-300 hover:scale-105 flex items-center gap-2 px-5 py-3 font-semibold text-sm"
           aria-label="Open chat"
         >
-          <FiMessageCircle className="w-6 h-6" />
-          <span className="text-sm font-semibold">Chat</span>
+          <FiMessageCircle className="w-5 h-5" />
+          <span>Ask AI</span>
         </button>
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-[90vw] max-w-80 sm:w-80 h-96 bg-gray-900 rounded-2xl shadow-lg flex flex-col"
+          className="w-[90vw] max-w-80 sm:w-80 h-96 glass-card shadow-card flex flex-col overflow-hidden"
         >
-          {/* Header */}
-          <div className="bg-gray-700 text-white p-3 rounded-t-2xl flex justify-between items-center">
-            <span>Uzair’s Assistant</span>
-            <button onClick={() => setOpen(false)} className="text-white hover:text-gray-300"><FiX className="w-5 h-5" /></button>
+          <div className="bg-white/[0.04] border-b border-white/[0.06] p-4 flex justify-between items-center">
+            <div>
+              <span className="font-display font-semibold text-sm">Uzair&apos;s Assistant</span>
+              <p className="text-[10px] text-white/40 font-primary uppercase tracking-wider">Powered by AI</p>
+            </div>
+            <button onClick={() => setOpen(false)} className="text-white/50 hover:text-white transition-colors">
+              <FiX className="w-5 h-5" />
+            </button>
           </div>
 
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 space-y-2 text-sm bg-gray-900 scrollbar-dark">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm scrollbar-dark">
             {messages.map((msg, i) => (
               <div
                 key={i}
-                className={`p-2 rounded-lg max-w-[80%] break-words not-italic ${
-                  msg.role === "user" 
-                    ? "bg-gray-600 text-white ml-auto"
-                    : "bg-gray-800 text-white"
+                className={`p-3 rounded-xl max-w-[85%] break-words text-sm leading-relaxed ${
+                  msg.role === "user"
+                    ? "bg-accent/20 text-white ml-auto border border-accent/20"
+                    : "bg-white/[0.04] text-white/80 border border-white/[0.06]"
                 }`}
-                style={{ fontStyle: "normal" }}
               >
                 {msg.role === "bot" && !msg.text && loading
-                  ? "Typing..."
+                  ? <span className="text-white/40">Typing...</span>
                   : <ReactMarkdown>{msg.text}</ReactMarkdown>
                 }
               </div>
@@ -136,19 +138,18 @@ export default function Chatbot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="p-2 border-t border-gray-700 flex items-center bg-gray-800 rounded-b-2xl">
+          <div className="p-3 border-t border-white/[0.06] flex items-center gap-2 bg-white/[0.02]">
             <input
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => e.key === "Enter" && !loading && handleSend()}
-              className="flex-1 bg-gray-700 text-white border-0 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-gray-500"
-              placeholder="Type a message..."
+              className="flex-1 input-modern py-2.5 text-sm"
+              placeholder="Ask about Uzair..."
               disabled={loading}
             />
             <button
               onClick={handleSend}
-              className={`ml-2 p-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 ${
+              className={`p-2.5 bg-accent text-primary rounded-xl hover:bg-accent-hover transition-colors ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={loading}

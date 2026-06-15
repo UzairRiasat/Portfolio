@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
-import StairTransition from "@/components/StairTransition";
+import HashScrollHandler from "@/components/HashScrollHandler";
+import BackgroundEffects from "@/components/BackgroundEffects";
+import Footer from "@/components/Footer";
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100","200","300","400","500","600","700","800"],
-  variable: "--font-jetbrainsMono"
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrainsMono",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plusJakarta",
 });
 
 export const metadata: Metadata = {
@@ -48,16 +55,18 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={jetbrainsMono.variable}>
-        <Header/>
-        <StairTransition/>
-        <PageTransition>{children}</PageTransition>
+      <body className={`${jetbrainsMono.variable} ${plusJakarta.variable}`}>
+        <BackgroundEffects />
+        <Header />
+        <HashScrollHandler />
+        <main className="relative z-10 pt-[88px] xl:pt-[112px]">{children}</main>
+        <Footer />
       </body>
     </html>
   );

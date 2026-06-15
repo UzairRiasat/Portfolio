@@ -3,59 +3,33 @@ import { motion } from 'framer-motion'
 
 const Photo = () => {
   return (
-    <div className="w-full h-full relative overflow-visible">
+    <div className="relative">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/20 via-transparent to-violet-glow/20 blur-3xl scale-110 animate-pulse-soft" />
+
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 0.9, duration: 0.4, ease: "easeOut" }
-        }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{
-            opacity: 1,
-            y: -10,
-            transition: { delay: 0.9, duration: 0.45, ease: "easeOut" }
-          }}
-          className={`
-            w-[340px] h-[360px] xl:w-[480px] xl:h-[520px]
-            absolute -top-10 xl:-top-32
-            left-[-10%] -translate-x-1/2 xl:left-[-75%]
-            bg-cover bg-center bg-no-repeat
-            mix-blend-lighten
-            [mask-image:linear-gradient(to_bottom,black_70%,rgba(0,0,0,0.2)_85%,transparent_100%)]
-            [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]
-          `}
-          style={{
-            backgroundImage: "url('/Assets/My_Photo.png')",
-          }}
-          aria-label="Uzair Riasat"
-        />
+        <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] xl:w-[400px] xl:h-[400px] rounded-full p-[3px] bg-gradient-to-br from-accent/60 via-accent/20 to-violet-glow/40 shadow-glow animate-float">
+          <div
+            className="relative w-full h-full rounded-full overflow-hidden bg-secondary bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/Assets/My_Photo.png')" }}
+            role="img"
+            aria-label="Uzair Riasat"
+          />
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            x: ['0px', '-200px'],
-            y: ['0px', '-52px'],
-            transition: {
-              delay: 0.2,
-              duration: 0.4,
-              ease: "easeInOut",
-            },
-          }}
-          className="relative"
-        >
-          <motion.svg
-            className="w-[300px] xl:[w-2600px] h-[300px] xl:[h-2600px]"
-            fill="transparent"
-            viewBox="0 0 2200 2200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-          </motion.svg>
-        </motion.div>
+        <div className="absolute -bottom-2 -right-2 xl:-bottom-4 xl:-right-4 glass-card px-4 py-3 rounded-xl shadow-card">
+          <p className="font-primary text-[10px] uppercase tracking-widest text-accent/70">Focus</p>
+          <p className="font-display text-sm font-semibold text-white">AI & Backend</p>
+        </div>
+
+        <div className="absolute -top-2 -left-4 xl:-top-4 xl:-left-6 glass-card px-4 py-3 rounded-xl shadow-card">
+          <p className="font-display text-2xl font-bold gradient-text">3+</p>
+          <p className="font-primary text-[10px] uppercase tracking-widest text-white/50">Years Exp.</p>
+        </div>
       </motion.div>
     </div>
   )
