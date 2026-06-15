@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <>
       <section id="home" className="relative min-h-[calc(100vh-88px)] xl:min-h-[calc(100vh-112px)] flex flex-col">
-        <div className="container mx-auto flex-1 flex flex-col justify-center py-12 xl:py-16">
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-16">
+        <div className="container mx-auto flex-1 flex flex-col justify-between py-8 xl:py-10">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-16">
             <div className="text-center xl:text-left order-2 xl:order-none flex-1 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -82,10 +82,9 @@ const Home = () => {
               <Photo />
             </div>
           </div>
-        </div>
-
-        <div className="container mx-auto pb-8">
-          <Stats />
+          <div className="mt-12 xl:mt-0">
+            <Stats />
+          </div>
         </div>
 
         <a

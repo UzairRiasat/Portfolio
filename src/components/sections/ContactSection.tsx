@@ -66,17 +66,20 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 xl:py-32">
-      <div className="container mx-auto">
+    <section
+      id="contact"
+      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 min-h-[calc(100vh-88px)] xl:min-h-[calc(100vh-112px)] scroll-mt-[112px]"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="03 — Contact"
           title="Let's Connect"
           description="Have a project in mind or just want to say hello? I'd love to hear from you."
         />
 
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-8 xl:gap-10">
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 md:gap-8 xl:gap-10">
           <div className="xl:col-span-2 space-y-6">
-            <div className="glass-card p-8">
+            <div className="glass-card p-6 md:p-8">
               <h3 className="h3 mb-3">Get in touch</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 I&apos;m currently available for freelance work or full-time opportunities.
@@ -88,12 +91,12 @@ const ContactSection = () => {
                   const Icon = item.icon;
                   const content = (
                     <div className="flex items-center gap-4 group">
-                      <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:shadow-glow-sm transition-shadow">
+                      <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:shadow-glow-sm transition-shadow flex-shrink-0">
                         <Icon className="text-lg" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-xs text-white/40 uppercase tracking-wider">{item.label}</p>
-                        <p className="text-white/80 group-hover:text-accent transition-colors">
+                        <p className="text-white/80 group-hover:text-accent transition-colors break-words">
                           {item.value}
                         </p>
                       </div>
@@ -113,7 +116,7 @@ const ContactSection = () => {
               <div className="mt-8 pt-6 border-t border-white/[0.06]">
                 <p className="text-xs text-white/40 uppercase tracking-wider mb-3">Follow me</p>
                 <Socials
-                  containerStyles="flex gap-3"
+                  containerStyles="flex gap-3 flex-wrap"
                   iconStyles="w-10 h-10 glass-card flex justify-center items-center text-white/60 text-sm hover:text-accent hover:border-accent/40 transition-all duration-300"
                 />
               </div>
@@ -121,7 +124,7 @@ const ContactSection = () => {
           </div>
 
           <div className="xl:col-span-3">
-            <form onSubmit={handleSubmit} className="glass-card p-8 xl:p-10 space-y-5">
+            <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 xl:p-10 space-y-5">
               <h3 className="h3 mb-2">Send a message</h3>
               <p className="text-white/40 text-sm mb-4">Fill out the form and I&apos;ll get back to you soon.</p>
 
@@ -137,7 +140,7 @@ const ContactSection = () => {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                 <div>
                   <label htmlFor="name" className="block text-xs font-medium text-white/50 uppercase tracking-wider mb-2">
                     Name

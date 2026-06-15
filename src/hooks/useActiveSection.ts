@@ -7,26 +7,34 @@ export function useActiveSection(sectionIds: SectionId[]) {
   const [activeSection, setActiveSection] = useState<SectionId>(sectionIds[0]);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const getHeaderOffset = () => (window.innerWidth >= 1280 ? 112 : 88);
 
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id);
-      if (!element) return;
+    const updateActiveSection = () => {
+      const offset = getHeaderOffset() + 8;
+      let currentActive: SectionId = sectionIds[0];
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(id);
-          }
-        },
-        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
-      );
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (!element) continue;
 
-      observer.observe(element);
-      observers.push(observer);
-    });
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          currentActive = id;
+          break;
+        }
+      }
 
-    return () => observers.forEach((observer) => observer.disconnect());
+      setActiveSection(currentActive);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, [sectionIds]);
 
   return activeSection;

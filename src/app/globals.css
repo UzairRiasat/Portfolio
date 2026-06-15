@@ -4,12 +4,30 @@
 
 @layer base {
   html {
-    scroll-padding-top: 88px;
+    scroll-padding-top: 180px;
+  }
+
+  section[id] {
+    position: relative;
+  }
+
+  section[id]::before {
+    content: "";
+    display: block;
+    height: 180px;
+    margin-top: -180px;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   @media (min-width: 1280px) {
     html {
-      scroll-padding-top: 112px;
+      scroll-padding-top: 210px;
+    }
+
+    section[id]::before {
+      height: 210px;
+      margin-top: -210px;
     }
   }
 

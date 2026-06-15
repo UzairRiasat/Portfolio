@@ -37,22 +37,25 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 xl:py-32">
-      <div className="container mx-auto">
+    <section
+      id="services"
+      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 min-h-[calc(100vh-88px)] xl:min-h-[calc(100vh-112px)] scroll-mt-[112px]"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="01 — Services"
           title="What I Do"
           description="Leveraging modern technologies to build scalable backend systems and intelligent AI-powered solutions."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="glass-card-hover p-8 group relative overflow-hidden">
+              <div key={index} className="glass-card-hover p-6 md:p-8 group relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors" />
 
-                <div className="relative">
+                <div className="relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-5 group-hover:shadow-glow-sm transition-shadow">
                     <Icon className="text-2xl text-accent" />
                   </div>
@@ -78,13 +81,13 @@ const ServicesSection = () => {
           })}
         </div>
 
-        <div className="text-center mt-14">
-          <p className="text-white/40">
+        <div className="text-center mt-12 md:mt-14">
+          <p className="text-white/40 text-sm md:text-base">
             Interested in working together?{" "}
             <button
               type="button"
               onClick={() => scrollToSection("contact")}
-              className="text-accent font-medium hover:underline"
+              className="text-accent font-medium hover:underline inline"
             >
               Let&apos;s talk →
             </button>
