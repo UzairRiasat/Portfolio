@@ -68,7 +68,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 scroll-mt-[112px]"
+      className="relative w-full mt-14 xl:mt-28 2xl:mt-36 py-10 xl:py-16 2xl:py-24 scroll-mt-[112px]"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -81,7 +81,7 @@ const ContactSection = () => {
           <div className="xl:col-span-2 space-y-6">
             <div className="glass-card p-6 md:p-8">
               <h3 className="h3 mb-3">Get in touch</h3>
-              <p className="text-white/50 text-sm leading-relaxed mb-8">
+              <p className="text-white/50 text-sm leading-relaxed mb-6">
                 I&apos;m currently available for freelance work or full-time opportunities.
                 The quickest way to reach me is via email or phone.
               </p>

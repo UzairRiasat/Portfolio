@@ -12,19 +12,30 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "1.25rem",
+      padding: {
+        DEFAULT: "1.25rem",
+        sm: "1.5rem",
+        lg: "2rem",
+        xl: "2.5rem",
+      },
+      // Max width caps the content so it never stretches full-screen
+      // This creates the visible background on both sides you see in image 2
     },
     screens: {
       sm: "640px",
       md: "768px",
       lg: "960px",
-      xl: "1200px",
+      xl: "1024px",
+      "2xl": "1280px",
     },
     fontFamily: {
       primary: ["var(--font-jetbrainsMono)", "monospace"],
       display: ["var(--font-plusJakarta)", "system-ui", "sans-serif"],
     },
     extend: {
+      maxWidth: {
+        // Used on .container via the wrapper div in layout
+      },
       colors: {
         primary: "#08080c",
         secondary: "#12121a",

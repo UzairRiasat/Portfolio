@@ -10,7 +10,7 @@ const stats = [
 ]
 
 const Stats = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
     <div ref={ref} className="w-full">
@@ -18,15 +18,15 @@ const Stats = () => {
         {stats.map((item, index) => (
           <div
             key={index}
-            className="glass-card-hover p-4 text-center group"
+            className="glass-card-hover p-3 xl:p-4 text-center group"
           >
             {inView && (
-              <div className="font-display text-2xl xl:text-3xl font-bold gradient-text mb-1">
+              <div className="font-display text-xl xl:text-2xl font-bold gradient-text mb-0.5">
                 <CountUp end={item.num} duration={2.5} delay={index * 0.1} />
                 <span>{item.suffix}</span>
               </div>
             )}
-            <p className="text-sm text-white/50 group-hover:text-white/70 transition-colors">
+            <p className="text-xs xl:text-sm text-white/50 group-hover:text-white/70 transition-colors">
               {item.text}
             </p>
           </div>

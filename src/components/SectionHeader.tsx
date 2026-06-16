@@ -14,13 +14,13 @@ const SectionHeader = ({
   const isCenter = align === "center";
 
   return (
-    <div className={`mb-14 xl:mb-20 ${isCenter ? "text-center" : "text-center xl:text-left"}`}>
+    <div className={`mb-10 xl:mb-14 2xl:mb-20 ${isCenter ? "text-center" : "text-center xl:text-left"}`}>
       <p className={`section-label ${isCenter ? "" : "xl:mx-0 mx-auto"}`}>{label}</p>
       <h2 className="h2 mb-4">
         <span className="gradient-text">{title}</span>
       </h2>
       <p
-        className={`text-white/60 text-lg leading-relaxed max-w-[560px] ${
+        className={`text-white/60 text-base xl:text-lg leading-relaxed max-w-[560px] ${
           isCenter ? "mx-auto" : "mx-auto xl:mx-0"
         }`}
       >

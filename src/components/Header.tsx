@@ -3,11 +3,11 @@ import MobileNav from "./MobileNav"
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto py-4 xl:py-5">
-        <div className="flex justify-between items-center bg-primary/100 border border-white/[0.08] px-5 py-3 xl:px-8 xl:py-4 rounded-2xl shadow-card">
+    <header className="fixed top-0 z-50">
+      <div className="py-2 xl:py-3 px-4 xl:px-5">
+        <div className="flex justify-between items-center bg-primary/95 backdrop-blur-xl border border-white/[0.08] px-5 py-2.5 xl:px-7 xl:py-3 rounded-2xl shadow-card">
           <a href="#home" className="cursor-pointer group">
-            <h1 className="font-display text-2xl xl:text-3xl font-bold tracking-tight">
+            <h1 className="font-display text-xl xl:text-2xl font-bold tracking-tight">
               Uzair<span className="text-accent group-hover:text-emerald-300 transition-colors">.</span>
             </h1>
           </a>

@@ -32,7 +32,7 @@ const WorkSection = () => {
   return (
     <section
       id="work"
-      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 scroll-mt-[112px]"
+      className="relative w-full mt-14 xl:mt-28 2xl:mt-36 py-10 xl:py-16 2xl:py-24 scroll-mt-[112px]"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -51,7 +51,7 @@ const WorkSection = () => {
                   <div className="w-3 h-3 rounded-full bg-accent shadow-glow-sm ring-4 ring-accent/20" />
                 </div>
 
-                <div className="glass-card-hover p-6 md:p-8">
+                <div className="glass-card-hover p-5 md:p-7">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-5">
                     <div>
                       <p className="font-primary text-xs uppercase tracking-widest text-accent/70 mb-1">

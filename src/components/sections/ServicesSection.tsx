@@ -39,20 +39,21 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 scroll-mt-[112px]"
+      className="relative w-full mt-0 xl:mt-14 2xl:mt-20 py-10 xl:py-16 2xl:py-24 scroll-mt-[112px]"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          label="01 — Services"
-          title="What I Do"
-          description="Leveraging modern technologies to build scalable backend systems and intelligent AI-powered solutions."
-        />
+        <div className="min-h-[calc(100dvh-var(--header-h))] flex flex-col justify-center py-6 xl:py-8">
+          <SectionHeader
+            label="01 — Services"
+            title="What I Do"
+            description="Leveraging modern technologies to build scalable backend systems and intelligent AI-powered solutions."
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="glass-card-hover p-6 md:p-8 group relative overflow-hidden">
+              <div key={index} className="glass-card-hover p-5 md:p-7 group relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors" />
 
                 <div className="relative z-10">
@@ -79,9 +80,10 @@ const ServicesSection = () => {
               </div>
             );
           })}
+          </div>
         </div>
 
-        <div className="text-center mt-12 md:mt-14">
+        <div className="text-center mt-10 md:mt-12">
           <p className="text-white/40 text-sm md:text-base">
             Interested in working together?{" "}
             <button
