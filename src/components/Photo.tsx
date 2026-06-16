@@ -12,7 +12,7 @@ const Photo = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative"
       >
-        <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] xl:w-[400px] xl:h-[400px] rounded-full p-[3px] bg-gradient-to-br from-accent/60 via-accent/20 to-violet-glow/40 shadow-glow animate-float">
+        <div className="relative w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] lg:w-[340px] lg:h-[340px] xl:w-[400px] xl:h-[400px] rounded-full p-[3px] bg-gradient-to-br from-accent/60 via-accent/20 to-violet-glow/40 shadow-glow animate-float">
           <div
             className="relative w-full h-full rounded-full overflow-hidden bg-secondary bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/Assets/My_Photo.png')" }}

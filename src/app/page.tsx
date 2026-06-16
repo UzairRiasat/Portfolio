@@ -13,7 +13,7 @@ const techStack = ["Python", "FastAPI", "AI Agents", "LangGraph", "Next.js"]
 const Home = () => {
   return (
     <>
-      <section id="home" className="relative min-h-[calc(100vh-88px)] xl:min-h-[calc(100vh-112px)] flex flex-col">
+      <section id="home" className="relative flex flex-col">
         <div className="container mx-auto flex-1 flex flex-col justify-between py-8 xl:py-10">
           <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-16">
             <div className="text-center xl:text-left order-2 xl:order-none flex-1 max-w-2xl">

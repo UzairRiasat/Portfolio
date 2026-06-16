@@ -32,7 +32,7 @@ const WorkSection = () => {
   return (
     <section
       id="work"
-      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 min-h-[calc(100vh-88px)] xl:min-h-[calc(100vh-112px)] scroll-mt-[112px]"
+      className="relative w-full mt-32 xl:mt-36 py-16 xl:py-24 scroll-mt-[112px]"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
