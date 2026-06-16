@@ -1,3 +1,14 @@
+/* CSS custom properties — defined before Tailwind so they're available everywhere */
+:root {
+  --header-h: 64px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 76px;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +27,6 @@
     @apply font-display bg-primary text-white antialiased overflow-x-hidden;
   }
 
-  /* h1 scales fluidly with viewport — works at any resolution or scaling factor */
   .h1 {
     font-family: var(--font-plusJakarta), system-ui, sans-serif;
     font-size: clamp(26px, 4vw, 68px);
@@ -35,11 +45,6 @@
 }
 
 @layer components {
-  /*
-    page-shell: the single centered column that contains everything.
-    Background bleeds full-width on the body, but content is capped at 1200px
-    and centered — this is what creates the "framed" look in image 2.
-  */
   .page-shell {
     @apply mx-auto w-full;
     max-width: 1200px;

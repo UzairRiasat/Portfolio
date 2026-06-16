@@ -15,12 +15,6 @@ const techStack = ["Python", "FastAPI", "AI Agents", "LangGraph", "Next.js"]
 const Home = () => {
   return (
     <>
-      {/*
-        Hero uses min-h so it always fills the remaining viewport after the header.
-        --header-h is set in layout.tsx and matches the actual header height.
-        On short screens (e.g. 1366x768 with fractional scaling) this lets the
-        browser scroll naturally rather than clipping content.
-      */}
       <section
         id="home"
         className="relative flex flex-col"
@@ -38,7 +32,7 @@ const Home = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card mb-3 xl:mb-4">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
                 <span className="font-primary text-xs uppercase tracking-widest text-white/70 whitespace-nowrap">
-                  Available for opportunities
+                  Available
                 </span>
               </div>
 
@@ -75,11 +69,6 @@ const Home = () => {
                   <Button variant="default" size="lg" className="flex items-center gap-2 shadow-glow-sm">
                     <span>Download CV</span>
                     <FiDownload className="text-lg" />
-                  </Button>
-                </a>
-                <a href="#work">
-                  <Button variant="outline" size="lg" className="flex items-center gap-2">
-                    View my work
                   </Button>
                 </a>
               </div>

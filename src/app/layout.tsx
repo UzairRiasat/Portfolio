@@ -50,7 +50,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
+      {/* <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -58,7 +58,7 @@ export default function RootLayout({
           :root { --header-h: 64px; }
           @media (min-width: 1024px) { :root { --header-h: 76px; } }
         `}</style>
-      </head>
+      </head> */}
       <body className={`${jetbrainsMono.variable} ${plusJakarta.variable}`}>
         <BackgroundEffects />
 

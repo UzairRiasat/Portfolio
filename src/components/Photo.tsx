@@ -30,7 +30,7 @@ const Photo = () => {
 
         <div className="absolute -bottom-2 -right-2 glass-card px-3 py-2 rounded-xl shadow-card">
           <p className="font-primary text-[9px] uppercase tracking-widest text-accent/70">Focus</p>
-          <p className="font-display text-xs font-semibold text-white">AI & Backend</p>
+          <p className="font-display text-xs font-semibold text-white">Full-Stack & AI</p>
         </div>
 
         <div className="absolute -top-2 -left-4 glass-card px-3 py-2 rounded-xl shadow-card">
