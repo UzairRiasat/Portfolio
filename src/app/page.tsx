@@ -8,6 +8,7 @@ import Stats from "@/components/Stats"
 import ServicesSection from "@/components/sections/ServicesSection"
 import WorkSection from "@/components/sections/WorkSection"
 import ContactSection from "@/components/sections/ContactSection"
+import { scrollToSection } from "@/lib/nav-links"
 
 const techStack = ["Python", "FastAPI", "AI Agents", "LangGraph", "Next.js"]
 
@@ -105,13 +106,14 @@ const Home = () => {
         </div>
 
         {/* Scroll hint — only visible when there's room */}
-        <a
-          href="#services"
+        <button
+          onClick={() => scrollToSection("services")}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden xl:flex flex-col items-center gap-1 text-white/30 hover:text-accent transition-colors animate-bounce"
           aria-label="Scroll to services"
+          type="button"
         >
           <FiArrowDown className="text-xl" />
-        </a>
+        </button>
       </section>
 
       <ServicesSection />
