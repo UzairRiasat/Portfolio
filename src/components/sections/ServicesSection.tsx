@@ -39,7 +39,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="relative w-full mt-0 xl:mt-14 2xl:mt-20 py-10 xl:py-16 2xl:py-24 scroll-mt-[112px]"
+      className="relative w-full mt-0 xl:mt-14 2xl:mt-20 py-10 xl:py-16 2xl:py-24"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="min-h-[calc(100dvh-var(--header-h))] flex flex-col justify-center py-6 xl:py-8">

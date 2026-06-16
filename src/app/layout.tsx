@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import HashScrollHandler from "@/components/HashScrollHandler";
 import BackgroundEffects from "@/components/BackgroundEffects";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <Chatbot />
       </body>
     </html>
   );

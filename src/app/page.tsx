@@ -5,7 +5,6 @@ import { FiDownload, FiArrowDown } from "react-icons/fi"
 import Socials from "@/components/Socials"
 import Photo from "@/components/Photo"
 import Stats from "@/components/Stats"
-import Chatbot from "@/components/Chatbot"
 import ServicesSection from "@/components/sections/ServicesSection"
 import WorkSection from "@/components/sections/WorkSection"
 import ContactSection from "@/components/sections/ContactSection"
@@ -24,7 +23,7 @@ const Home = () => {
       <section
         id="home"
         className="relative flex flex-col"
-        style={{ minHeight: "calc(100dvh - var(--header-h))" }}
+        style={{ minHeight: "calc(90dvh - var(--header-h))" }}
       >
         <div className="container mx-auto flex-1 flex flex-col justify-between py-4 xl:py-6">
 
@@ -100,7 +99,7 @@ const Home = () => {
           </div>
 
           {/* ── Stats row — always below hero content, never overlaps ── */}
-          <div className="mt-4 xl:mt-6">
+          <div className="mt-2 xl:mt-4">
             <Stats />
           </div>
         </div>
@@ -113,8 +112,6 @@ const Home = () => {
         >
           <FiArrowDown className="text-xl" />
         </a>
-
-        <Chatbot />
       </section>
 
       <ServicesSection />
