@@ -180,18 +180,33 @@ export default function Chatbot() {
     )
   }
 
+  const isMobileView = typeof window !== 'undefined' ? window.innerWidth <= 640 : false
+  const effectiveWidth = size
+    ? Math.min(size.width, window.innerWidth - 32, 380)
+    : Math.min(340, window.innerWidth - 32)
+  const effectiveHeight = size
+    ? Math.min(size.height, window.innerHeight - 32, window.innerHeight * 0.75)
+    : Math.min(420, window.innerHeight * 0.7)
+  const useSavedPosition = pos && !isMobileView
+  const clampedLeft = useSavedPosition
+    ? Math.max(16, Math.min(pos.left, window.innerWidth - effectiveWidth - 16))
+    : undefined
+  const clampedTop = useSavedPosition
+    ? Math.max(16, Math.min(pos.top, window.innerHeight - effectiveHeight - 16))
+    : undefined
+
   const containerStyle: React.CSSProperties = {
     position: 'fixed',
     zIndex: 50,
-    left: pos ? pos.left : undefined,
-    top: pos ? pos.top : undefined,
-    right: pos ? undefined : 24,
-    bottom: pos ? undefined : 24,
-    width: size ? size.width : 380,
-    height: size ? size.height : 440,
-    maxWidth: '90vw',
+    left: clampedLeft,
+    top: clampedTop,
+    right: useSavedPosition ? undefined : 16,
+    bottom: useSavedPosition ? undefined : 16,
+    width: effectiveWidth,
+    height: effectiveHeight,
+    maxWidth: 'calc(100vw - 32px)',
     maxHeight: '70vh',
-    minWidth: 300,
+    minWidth: 280,
     minHeight: 240,
   }
 
