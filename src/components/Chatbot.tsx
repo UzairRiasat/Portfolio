@@ -182,11 +182,11 @@ export default function Chatbot() {
 
   const isMobileView = typeof window !== 'undefined' ? window.innerWidth <= 640 : false
   const effectiveWidth = size
-    ? Math.min(size.width, window.innerWidth - 32, 380)
-    : Math.min(340, window.innerWidth - 32)
+    ? Math.min(size.width, window.innerWidth - 32, 320)
+    : Math.min(window.innerWidth * 0.9, 320)
   const effectiveHeight = size
-    ? Math.min(size.height, window.innerHeight - 32, window.innerHeight * 0.75)
-    : Math.min(420, window.innerHeight * 0.7)
+    ? Math.min(size.height, window.innerHeight - 32, 384)
+    : Math.min(384, window.innerHeight * 0.75)
   const useSavedPosition = pos && !isMobileView
   const clampedLeft = useSavedPosition
     ? Math.max(16, Math.min(pos.left, window.innerWidth - effectiveWidth - 16))
@@ -204,15 +204,15 @@ export default function Chatbot() {
     bottom: useSavedPosition ? undefined : 16,
     width: effectiveWidth,
     height: effectiveHeight,
-    maxWidth: 'calc(100vw - 32px)',
-    maxHeight: '70vh',
+    maxWidth: 'calc(90vw)',
+    maxHeight: 384,
     minWidth: 280,
-    minHeight: 240,
+    minHeight: 384,
   }
 
   return (
     <div ref={containerRef} style={containerStyle} className="animate-in fade-in duration-500">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card shadow-card flex flex-col overflow-hidden" style={{ width: '100%', height: '100%', minWidth: 300, minHeight: 240 }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card shadow-card flex flex-col overflow-hidden h-full w-full" style={{ width: '100%', height: '100%' }}>
         <div
           onMouseDown={(e) => {
             const el = containerRef.current
