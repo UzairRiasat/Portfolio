@@ -165,13 +165,13 @@ export default function Chatbot() {
   // render closed button
   if (!open) {
     return (
-      <div className="fixed right-14 bottom-12 z-50 animate-in fade-in duration-500">
+      <div className="fixed right-4 bottom-4 xl:right-14 xl:bottom-12 z-50 animate-in fade-in duration-500">
         <button
           onClick={() => setOpen(true)}
-          className="group relative bg-accent text-primary rounded-2xl shadow-glow hover:shadow-glow-sm transition-all duration-300 hover:scale-105 flex items-center gap-2 px-5 py-3 font-semibold text-sm"
+          className="group relative bg-accent text-primary rounded-2xl shadow-glow hover:shadow-glow-sm transition-all duration-300 hover:scale-105 flex items-center gap-2 px-4 py-2 xl:px-5 xl:py-3 font-semibold text-xs xl:text-sm"
           aria-label="Open chat"
         >
-          <FiMessageCircle className="w-5 h-5" />
+          <FiMessageCircle className="w-4 h-4 xl:w-5 xl:h-5" />
           <span>Ask AI</span>
         </button>
       </div>
