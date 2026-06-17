@@ -7,7 +7,10 @@ export function useActiveSection(sectionIds: SectionId[]) {
   const [activeSection, setActiveSection] = useState<SectionId>(sectionIds[0]);
 
   useEffect(() => {
-    const getHeaderOffset = () => (window.innerWidth >= 1280 ? 112 : 88);
+    const getHeaderOffset = () => {
+      const header = document.querySelector("header");
+      return header ? header.getBoundingClientRect().height : 88;
+    };
 
     const updateActiveSection = () => {
       const offset = getHeaderOffset() + 8;
@@ -18,9 +21,8 @@ export function useActiveSection(sectionIds: SectionId[]) {
         if (!element) continue;
 
         const rect = element.getBoundingClientRect();
-        if (rect.top <= offset && rect.bottom > offset) {
+        if (rect.top <= offset) {
           currentActive = id;
-          break;
         }
       }
 

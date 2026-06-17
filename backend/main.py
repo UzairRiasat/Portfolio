@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
-from src.my_agent.graph import build_graph
-from src.my_agent.prompt import SYSTEM_PROMPT
+from backend.my_agent.graph import build_graph
+from backend.my_agent.prompt import SYSTEM_PROMPT
 
 graph = build_graph()
 
