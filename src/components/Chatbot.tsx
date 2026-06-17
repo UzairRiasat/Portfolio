@@ -49,8 +49,10 @@ export default function Chatbot() {
         if (parsed.size) {
           const width = Number(parsed.size.width)
           const height = Number(parsed.size.height)
-          if (!Number.isNaN(width) && !Number.isNaN(height) && width >= 340 && height >= 260) {
-            setSize({ width, height })
+          const maxWidth = window.innerWidth * 0.9
+          const maxHeight = Math.max(window.innerHeight * 0.6, 260)
+          if (!Number.isNaN(width) && !Number.isNaN(height) && width >= 300 && height >= 240) {
+            setSize({ width: Math.min(width, maxWidth), height: Math.min(height, maxHeight) })
           }
         }
       }
@@ -185,14 +187,17 @@ export default function Chatbot() {
     top: pos ? pos.top : undefined,
     right: pos ? undefined : 24,
     bottom: pos ? undefined : 24,
-    width: size ? size.width : 460,
-    height: size ? size.height : 520,
+    width: size ? size.width : 380,
+    height: size ? size.height : 440,
     maxWidth: '90vw',
+    maxHeight: '70vh',
+    minWidth: 300,
+    minHeight: 240,
   }
 
   return (
     <div ref={containerRef} style={containerStyle} className="animate-in fade-in duration-500">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card shadow-card flex flex-col overflow-hidden" style={{ width: '100%', height: '100%', minWidth: 340, minHeight: 260 }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card shadow-card flex flex-col overflow-hidden" style={{ width: '100%', height: '100%', minWidth: 300, minHeight: 240 }}>
         <div
           onMouseDown={(e) => {
             const el = containerRef.current
