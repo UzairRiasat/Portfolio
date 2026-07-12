@@ -8,31 +8,31 @@ const ServicesSection = () => {
   const services = [
     {
       icon: FiCode,
-      title: "Backend Development",
+      title: "Full-Stack Web Development",
       description:
-        "Scalable and secure backend systems built with Python, FastAPI, and MySQL. Designed for performance, modular architecture, and production-ready APIs.",
-      technologies: ["Python", "FastAPI", "MySQL", "Frappe"],
+        "Complete applications from UI to deployment. Python and FastAPI backends integrated with Next.js frontends. Full ownership of architecture, code review, and delivery cycle.",
+      technologies: ["Python", "FastAPI", "Next.js", "TypeScript", "MySQL"],
     },
     {
       icon: FiCpu,
-      title: "AI Agent Development",
+      title: "AI & LLM Integration",
       description:
-        "Intelligent agents powered by LangGraph and OpenAI. Specialized in RAG pipelines, vector retrieval, and multi-step AI workflows for real-world automation.",
-      technologies: ["LangGraph", "OpenAI SDK", "RAG", "Retrieval"],
+        "Intelligent applications powered by OpenAI and GPT-4o. Agentic workflows, document processing, and AI-enhanced APIs. Experienced with prompt engineering and production AI deployment.",
+      technologies: ["OpenAI API", "GPT-4o", "Prompt Engineering", "Agentic AI"],
     },
     {
       icon: FiDatabase,
-      title: "API Design & Integration",
+      title: "Enterprise Systems & ERP",
       description:
-        "RESTful API design and seamless integration with frontend systems. Focus on authentication, OpenAPI documentation, and reliable data flow.",
-      technologies: ["REST APIs", "FastAPI", "MySQL", "Postman"],
+        "Frappe and ERPNext customization, API services, and business workflow automation. Database optimization, reporting dashboards, and cross-functional team coordination.",
+      technologies: ["Frappe", "ERPNext", "MySQL Optimization", "Highcharts"],
     },
     {
       icon: FiZap,
-      title: "Generative AI Solutions",
+      title: "Deployment & DevOps",
       description:
-        "End-to-end generative AI applications from concept to deployment. Experience with GPT-4, prompt engineering, and AI-powered product features.",
-      technologies: ["GPT-4", "Prompt Engineering", "Cursor", "Claude"],
+        "Production-ready deployments on Render and Netlify. Git workflows, code review practices, and Agile coordination with development teams using Trello and Jira.",
+      technologies: ["Render", "Netlify", "Git", "Agile/Trello"],
     },
   ];
 

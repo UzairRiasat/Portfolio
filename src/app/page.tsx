@@ -10,7 +10,7 @@ import WorkSection from "@/components/sections/WorkSection"
 import ContactSection from "@/components/sections/ContactSection"
 import { scrollToSection } from "@/lib/nav-links"
 
-const techStack = ["Python", "FastAPI", "AI Agents", "LangGraph", "Next.js"]
+const techStack = ["Python", "FastAPI", "Next.js", "MySQL", "OpenAI API", "Frappe"]
 
 const Home = () => {
   return (
@@ -38,20 +38,19 @@ const Home = () => {
 
               {/* Role label */}
               <p className="font-primary text-xs xl:text-sm uppercase tracking-[0.25em] text-accent/80 mb-2 xl:mb-3">
-                Backend & AI Developer
+                Full Stack Web Developer
               </p>
 
               {/* Headline — uses clamp() in globals.css so it scales with viewport */}
               <h1 className="h1 mb-3 xl:mb-4">
-                Building intelligent
+                Building complete
                 <br />
-                <span className="gradient-text">systems that scale</span>
+                <span className="gradient-text">full-stack applications</span>
               </h1>
 
               {/* Bio */}
               <p className="text-sm xl:text-base text-white/60 mb-4 xl:mb-5 leading-relaxed max-w-[500px] mx-auto xl:mx-0">
-                I&apos;m <span className="text-white font-medium">Uzair Riasat</span> — I design
-                scalable backends and AI-powered applications with Python, FastAPI, and modern LLM frameworks.
+                I&apos;m <span className="text-white font-medium">Uzair Riasat</span> — I build complete applications with Python backends, JavaScript frontends, and Frappe systems. Full-stack delivery from UI to API design and deployment.
               </p>
 
               {/* Tech pills */}

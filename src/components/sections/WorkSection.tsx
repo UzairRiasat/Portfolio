@@ -6,25 +6,27 @@ import SectionHeader from "@/components/SectionHeader";
 const WorkSection = () => {
   const experiences = [
     {
-      role: "Software Developer",
+      role: "Software Developer — Backend & Full Stack",
       company: "MicroMerger",
       location: "Islamabad, Pakistan",
-      period: "2025 — Present",
+      period: "Jan 2025 — Present",
       points: [
-        "Develop scalable backend APIs using Python and FastAPI for ERP and web applications.",
-        "Design MySQL database schemas and optimize queries for performance and reliability.",
-        "Contribute to ERP system architecture improving automation and internal workflows.",
+        "Frappe-based backend developer on Python systems for enterprise clients, handling internal workflows, data integration, and reporting.",
+        "Built and maintained Frappe-based API services with data flows for moving data between projects and importing records from Excel.",
+        "Improved API response times by ~30% through MySQL schema restructuring and query optimization.",
+        "Built interactive dashboards (Highcharts) visualizing operational data for UNICEF-supported public sector initiatives.",
+        "Coordinated sprints and delivery tracking with developers, analysts, and project managers using Trello and Ajera in an Agile environment.",
       ],
     },
     {
-      role: "AI Agent Developer",
+      role: "Full Stack Developer",
       company: "Personal Projects",
       location: "Remote",
-      period: "2023 — Present",
+      period: "2024 — Present",
       points: [
-        "Built LLM-powered agents using LangGraph and OpenAI APIs.",
-        "Developed Retrieval-Augmented Generation (RAG) pipelines for document-based Q&A systems.",
-        "Integrated AI agents into backend APIs for intelligent automation tools.",
+        "Built Portfolio Website (Next.js + FastAPI) with live AI agent integrated with OpenAI API, deployed on Netlify and Render.",
+        "Developed Document Processing Agent: FastAPI service converting unstructured PDFs/DOCX into validated JSON via agentic loop.",
+        "Created E-commerce Platform (FastAPI + MySQL) following Frappe standards with product catalog, checkout, and CRM modules.",
       ],
     },
   ];

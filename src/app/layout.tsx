@@ -20,7 +20,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Uzair Riasat - Backend Developer & AI Engineer",
+  title: "Uzair Riasat - Full Stack Web Developer",
   description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems.",
   icons: {
     icon: [
