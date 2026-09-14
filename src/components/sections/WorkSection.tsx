@@ -9,27 +9,36 @@ import TiltCard from "@/components/TiltCard";
 const WorkSection = () => {
   const experiences = [
     {
-      role: "Software Developer — Backend & Full Stack",
-      company: "MicroMerger",
+      role: "Software Engineer",
+      company: "MicroMerger (Pvt.) Ltd.",
       location: "Islamabad, Pakistan",
-      period: "Jan 2025 — Present",
+      period: "Jul 2025 — Present",
       points: [
-        "Frappe-based backend developer on Python systems for enterprise clients, handling internal workflows, data integration, and reporting.",
-        "Built and maintained Frappe-based API services with data flows for moving data between projects and importing records from Excel.",
+        "Backend and full-stack work on Frappe-based Python systems for enterprise clients — internal workflows, data integration, and reporting.",
+        "Built and maintained Frappe-based API services, including data flows to move records between projects and import Excel entries programmatically.",
         "Improved API response times by ~30% through MySQL schema restructuring and query optimization.",
         "Built interactive dashboards (Highcharts) visualizing operational data for UNICEF-supported public sector initiatives.",
         "Coordinated sprints and delivery tracking with developers, analysts, and project managers using Trello and Ajera in an Agile environment.",
       ],
     },
     {
-      role: "Full Stack Developer",
-      company: "Personal Projects",
-      location: "Remote",
-      period: "2024 — Present",
+      role: "Web Development Intern",
+      company: "IBDA",
+      location: "Islamabad, Pakistan · Remote",
+      period: "Aug 2024 — Dec 2024",
       points: [
-        "Built Portfolio Website (Next.js + FastAPI) with live AI agent integrated with OpenAI API, deployed on Netlify and Render.",
-        "Developed Document Processing Agent: FastAPI service converting unstructured PDFs/DOCX into validated JSON via agentic loop.",
-        "Created E-commerce Platform (FastAPI + MySQL) following Frappe standards with product catalog, checkout, and CRM modules.",
+        "Front-end web development internship using JavaScript, React, and Next.js. Built responsive UI and collaborated with developers on custom software delivery.",
+      ],
+    },
+    {
+      role: "Cloud Applied Generative AI Engineer",
+      company: "PIAIC",
+      location: "Islamabad, Pakistan",
+      period: "Feb 2023 — Dec 2024",
+      points: [
+        "Built and deployed AI agents with the OpenAI API (including LangGraph for multi-step flows) on real document and workflow use cases.",
+        "Improved answer reliability with RAG pipelines that ground LLM responses in structured knowledge.",
+        "Shipped two publicly deployed tools — a live portfolio AI assistant and a document extraction API.",
       ],
     },
   ];
@@ -44,7 +53,7 @@ const WorkSection = () => {
           <SectionHeader
             label="02 — Experience"
             title="My Work"
-            description="Professional experience building backend systems, APIs, and AI-powered applications."
+            description="Professional experience building backend systems, APIs, front-end interfaces, and AI-powered applications."
           />
         </MotionSection>
 

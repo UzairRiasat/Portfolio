@@ -20,8 +20,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Uzair Riasat - Full Stack Web Developer",
-  description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems.",
+  title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
+  description:
+    "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -30,8 +31,9 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Uzair Riasat - Backend Developer & AI Engineer",
-    description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems.",
+    title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
+    description:
+      "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
     url: "https://uzairriasat.netlify.app",
     siteName: "Uzair Riasat",
     images: [{ url: "https://uzairriasat.netlify.app/og-image.png", width: 1200, height: 630 }],
@@ -39,8 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Uzair Riasat - Backend Developer & AI Engineer",
-    description: "Portfolio of Uzair Riasat, a backend software developer specializing in Python, FastAPI, and AI agent systems.",
+    title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
+    description:
+      "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
     images: ["https://uzairriasat.netlify.app/og-image.png"],
   },
 };
