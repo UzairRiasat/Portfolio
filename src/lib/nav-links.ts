@@ -16,7 +16,13 @@ export function scrollToSection(id: SectionId) {
     ? header.getBoundingClientRect().height
     : parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 88;
 
-  const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+  // Extra gap so the section sits fully below the fixed header, not tucked under it
+  const offset = headerHeight + 12;
+  const top = Math.max(
+    0,
+    element.getBoundingClientRect().top + window.scrollY - offset
+  );
+
   window.scrollTo({ top, behavior: "smooth" });
   window.history.pushState(null, "", `#${id}`);
 }

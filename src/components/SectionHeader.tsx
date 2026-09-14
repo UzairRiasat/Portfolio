@@ -3,6 +3,7 @@ type SectionHeaderProps = {
   title: string;
   description: string;
   align?: "left" | "center";
+  className?: string;
 };
 
 const SectionHeader = ({
@@ -10,11 +11,12 @@ const SectionHeader = ({
   title,
   description,
   align = "left",
+  className = "mb-10 xl:mb-14 2xl:mb-20",
 }: SectionHeaderProps) => {
   const isCenter = align === "center";
 
   return (
-    <div className={`mb-10 xl:mb-14 2xl:mb-20 ${isCenter ? "text-center" : "text-center xl:text-left"}`}>
+    <div className={`${className} ${isCenter ? "text-center" : "text-center xl:text-left"}`}>
       <p className={`section-label ${isCenter ? "" : "xl:mx-0 mx-auto"}`}>{label}</p>
       <h2 className="h2 mb-4">
         <span className="gradient-text">{title}</span>
