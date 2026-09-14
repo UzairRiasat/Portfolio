@@ -9,7 +9,7 @@ const Footer = () => {
             Uzair<span className="text-accent">.</span>
           </p>
           <p className="text-white/40 text-sm mt-1">
-            Backend & AI Developer · Islamabad, Pakistan
+            Software Engineer · Backend & Full-Stack · Islamabad, Pakistan
           </p>
         </div>
 

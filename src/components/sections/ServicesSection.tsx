@@ -20,8 +20,8 @@ const ServicesSection = () => {
       icon: FiCpu,
       title: "AI & LLM Integration",
       description:
-        "Intelligent applications powered by OpenAI and GPT-4o. Agentic workflows, document processing, and AI-enhanced APIs. Experienced with prompt engineering and production AI deployment.",
-      technologies: ["OpenAI API", "GPT-4o", "Prompt Engineering", "Agentic AI"],
+        "AI-powered features with OpenAI — document processing, assistants, and API integrations. Comfortable with agent-style workflows and RAG where the product needs them.",
+      technologies: ["OpenAI API", "GPT-4o", "RAG", "Prompt Engineering"],
     },
     {
       icon: FiDatabase,
@@ -34,8 +34,8 @@ const ServicesSection = () => {
       icon: FiZap,
       title: "Deployment & DevOps",
       description:
-        "Production-ready deployments on Render and Netlify. Git workflows, code review practices, and Agile coordination with development teams using Trello and Jira.",
-      technologies: ["Render", "Netlify", "Git", "Agile/Trello"],
+        "Production-ready deployments on Render and Netlify. Git workflows, GitHub Actions CI/CD, code review, and Agile coordination with Trello and Jira.",
+      technologies: ["Render", "Netlify", "GitHub Actions", "Git"],
     },
   ];
 

@@ -11,7 +11,7 @@ import WorkSection from "@/components/sections/WorkSection"
 import ContactSection from "@/components/sections/ContactSection"
 import { scrollToSection } from "@/lib/nav-links"
 
-const techStack = ["Python", "FastAPI", "Next.js", "MySQL", "OpenAI API", "Frappe"]
+const techStack = ["Python", "FastAPI", "Frappe", "Next.js", "MySQL", "OpenAI API"]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -58,7 +58,7 @@ const Home = () => {
                 animate="show"
                 className="font-primary text-xs xl:text-sm uppercase tracking-[0.3em] text-accent mb-3"
               >
-                Full Stack Web Developer
+                Software Engineer · Backend & Full-Stack
               </motion.p>
 
               <motion.h1
@@ -70,7 +70,7 @@ const Home = () => {
               >
                 <span className="block tracking-tight">Uzair<span className="text-accent">.</span></span>
                 <span className="block mt-2 gradient-text text-shimmer">
-                  Full-stack systems that ship
+                  APIs, ERP, and AI systems that ship
                 </span>
               </motion.h1>
 
@@ -81,7 +81,7 @@ const Home = () => {
                 animate="show"
                 className="text-sm xl:text-base text-white/55 mb-6 leading-relaxed max-w-[520px] mx-auto xl:mx-0"
               >
-                Complete applications with Python backends, JavaScript frontends, and Frappe systems — from UI to API design and deployment.
+                Python/FastAPI and Frappe backends, AI-powered features with OpenAI, and Next.js UIs when the product needs a front end — from API design to deploy.
               </motion.p>
 
               <motion.div
