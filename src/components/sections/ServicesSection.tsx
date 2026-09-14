@@ -1,7 +1,10 @@
 "use client";
 
 import { FiCode, FiCpu, FiDatabase, FiZap } from "react-icons/fi";
+import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
+import TiltCard from "@/components/TiltCard";
+import MotionSection from "@/components/MotionSection";
 import { scrollToSection } from "@/lib/nav-links";
 
 const ServicesSection = () => {
@@ -39,51 +42,60 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="relative w-full mt-0 xl:mt-14 2xl:mt-20 py-10 xl:py-16 2xl:py-24"
+      className="relative w-full py-8 xl:py-10"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="min-h-[calc(100dvh-var(--header-h))] flex flex-col justify-center py-6 xl:py-8">
+        <MotionSection>
           <SectionHeader
             label="01 — Services"
             title="What I Do"
             description="Leveraging modern technologies to build scalable backend systems and intelligent AI-powered solutions."
+            className="mb-6 xl:mb-8"
           />
+        </MotionSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 perspective-scene">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="glass-card-hover p-5 md:p-7 group relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors" />
+              <MotionSection key={index} delay={index * 0.08}>
+                <TiltCard className="h-full">
+                  <div className="p-4 md:p-5 group relative overflow-hidden h-full">
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors" />
 
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-5 group-hover:shadow-glow-sm transition-shadow">
-                    <Icon className="text-2xl text-accent" />
+                    <div className="relative z-10" style={{ transform: "translateZ(40px)" }}>
+                      <motion.div
+                        className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-3"
+                        whileHover={{ rotateY: 180, scale: 1.08 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Icon className="text-xl text-accent" />
+                      </motion.div>
+
+                      <h3 className="h3 mb-2 group-hover:text-accent transition-colors">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-white/50 text-sm mb-3 leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {service.technologies.map((tech, i) => (
+                          <span key={i} className="tag-pill text-[11px]">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-
-                  <h3 className="h3 mb-3 group-hover:text-accent transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-white/50 text-sm mb-5 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {service.technologies.map((tech, i) => (
-                      <span key={i} className="tag-pill text-[11px]">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </TiltCard>
+              </MotionSection>
             );
           })}
-          </div>
         </div>
 
-        <div className="text-center mt-10 md:mt-12">
+        <div className="text-center mt-6 md:mt-8">
           <p className="text-white/40 text-sm md:text-base">
             Interested in working together?{" "}
             <button

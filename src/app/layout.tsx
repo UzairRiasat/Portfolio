@@ -3,7 +3,7 @@ import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import HashScrollHandler from "@/components/HashScrollHandler";
-import BackgroundEffects from "@/components/BackgroundEffects";
+import Scene3D from "@/components/Scene3D";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 
@@ -60,7 +60,7 @@ export default function RootLayout({
         `}</style>
       </head> */}
       <body className={`${jetbrainsMono.variable} ${plusJakarta.variable}`}>
-        <BackgroundEffects />
+        <Scene3D />
 
         {/*
           page-shell: centers and caps the entire site at 1200px.
