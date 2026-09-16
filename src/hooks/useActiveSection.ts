@@ -1,41 +1,55 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { SectionId } from "@/lib/nav-links";
+import { getScrollAnchor, type SectionId } from "@/lib/nav-links";
 
-export function useActiveSection(sectionIds: SectionId[]) {
+/**
+ * Tracks which page section is in view for navbar highlighting.
+ * Anchor line sits just below the measured fixed header.
+ */
+export function useActiveSection(sectionIds: readonly SectionId[]) {
   const [activeSection, setActiveSection] = useState<SectionId>(sectionIds[0]);
 
   useEffect(() => {
-    const getHeaderOffset = () => {
-      const header = document.querySelector("header");
-      return header ? header.getBoundingClientRect().height : 88;
-    };
+    const ids = [...sectionIds];
 
     const updateActiveSection = () => {
-      const offset = getHeaderOffset() + 8;
-      let currentActive: SectionId = sectionIds[0];
+      const anchor = getScrollAnchor() + 24;
 
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
-        if (!element) continue;
-
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= offset) {
-          currentActive = id;
+      let current: SectionId = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= anchor) {
+          current = id;
         }
       }
 
-      setActiveSection(currentActive);
+      const distanceFromBottom =
+        document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+      if (distanceFromBottom < 100) {
+        current = ids[ids.length - 1];
+      }
+
+      setActiveSection((prev) => (prev === current ? prev : current));
     };
 
     updateActiveSection();
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
+
+    const raf = requestAnimationFrame(updateActiveSection);
+    const t1 = window.setTimeout(updateActiveSection, 120);
+    const t2 = window.setTimeout(updateActiveSection, 500);
 
     return () => {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
     };
   }, [sectionIds]);
 

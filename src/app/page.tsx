@@ -11,7 +11,7 @@ import WorkSection from "@/components/sections/WorkSection"
 import ContactSection from "@/components/sections/ContactSection"
 import { scrollToSection } from "@/lib/nav-links"
 
-const techStack = ["Python", "FastAPI", "Frappe", "Next.js", "MySQL", "OpenAI API"]
+const techStack = ["Python", "FastAPI", "MySQL", "REST APIs", "Next.js", "OpenAI API"]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -25,12 +25,11 @@ const fadeUp = {
 const Home = () => {
   return (
     <>
-      <section
-        id="home"
-        className="relative flex flex-col overflow-hidden"
-        style={{ minHeight: "calc(100dvh - var(--header-h))" }}
-      >
-        <div className="container mx-auto flex-1 flex flex-col justify-center py-8 xl:py-10">
+      <section id="home" className="relative overflow-hidden">
+        <div
+          className="relative container mx-auto flex flex-col justify-center py-8 xl:py-10"
+          style={{ minHeight: "calc(100dvh - var(--header-h))" }}
+        >
           <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-14">
 
             {/* Text side */}
@@ -70,7 +69,7 @@ const Home = () => {
               >
                 <span className="block tracking-tight">Uzair<span className="text-accent">.</span></span>
                 <span className="block mt-2 gradient-text text-shimmer">
-                  APIs, ERP, and AI systems that ship
+                  APIs, data, and AI systems that ship
                 </span>
               </motion.h1>
 
@@ -81,7 +80,7 @@ const Home = () => {
                 animate="show"
                 className="text-sm xl:text-base text-white/55 mb-6 leading-relaxed max-w-[520px] mx-auto xl:mx-0"
               >
-                Python/FastAPI and Frappe backends, AI-powered features with OpenAI, and Next.js UIs when the product needs a front end — from API design to deploy.
+                Python and FastAPI backends, SQL and API design, AI-powered features with OpenAI, and Next.js when a product needs a UI — from schema to deploy. Production experience includes business systems and ERP.
               </motion.p>
 
               <motion.div
@@ -157,8 +156,19 @@ const Home = () => {
             </motion.div>
           </div>
 
+          <button
+            onClick={() => scrollToSection("services")}
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden xl:flex flex-col items-center gap-2 text-white/30 hover:text-accent transition-colors group"
+            aria-label="Scroll to services"
+            type="button"
+          >
+            <span className="font-primary text-[10px] uppercase tracking-[0.25em]">Scroll</span>
+            <FiArrowDown className="text-xl group-hover:translate-y-1 transition-transform animate-bounce" />
+          </button>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6 xl:pt-8 pb-8 xl:pb-10 border-t border-white/[0.04]">
           <motion.div
-            className="mt-10 xl:mt-14"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -166,16 +176,6 @@ const Home = () => {
             <Stats />
           </motion.div>
         </div>
-
-        <button
-          onClick={() => scrollToSection("services")}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden xl:flex flex-col items-center gap-2 text-white/30 hover:text-accent transition-colors group"
-          aria-label="Scroll to services"
-          type="button"
-        >
-          <span className="font-primary text-[10px] uppercase tracking-[0.25em]">Scroll</span>
-          <FiArrowDown className="text-xl group-hover:translate-y-1 transition-transform animate-bounce" />
-        </button>
       </section>
 
       <ServicesSection />

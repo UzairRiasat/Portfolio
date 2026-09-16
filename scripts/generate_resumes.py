@@ -141,7 +141,7 @@ def build_fullstack(path):
     story.append(Paragraph("Uzair Riasat", s["name"]))
     story.append(
         Paragraph(
-            "Full Stack Web Developer · Python / JavaScript / Next.js / MySQL / Frappe · AI-Powered Applications",
+            "Software Engineer @ MicroMerger | Backend &amp; Full-Stack · Python · FastAPI · AI",
             s["headline"],
         )
     )
@@ -328,7 +328,7 @@ def build_backend(path):
     story.append(Paragraph("Uzair Riasat", s["name"]))
     story.append(
         Paragraph(
-            "Backend Engineer · Python &amp; FastAPI · AI Agents &amp; LLM Systems · ERP",
+            "Software Engineer @ MicroMerger | Backend &amp; Full-Stack · Python · FastAPI · AI",
             s["headline"],
         )
     )

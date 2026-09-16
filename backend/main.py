@@ -8,7 +8,6 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 from backend.my_agent.graph import build_graph
-from backend.my_agent.prompt import SYSTEM_PROMPT
 
 graph = build_graph()
 
@@ -33,24 +32,13 @@ async def health():
 async def chat(request: Request):
     data = await request.json()
     user_message = data.get("message", "")
-    
     thread_id = data.get("thread_id", "default-session")
 
     if not user_message:
         return JSONResponse({"error": "No message provided"}, status_code=400)
 
     config = {"configurable": {"thread_id": thread_id}}
-    current_state = await graph.aget_state(config)
-
-    if not current_state.values.get("messages"):
-        input_messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_message}
-        ]
-    else:
-        input_messages = [{"role": "user", "content": user_message}]
-
-    inputs = {"messages": input_messages}
+    inputs = {"messages": [{"role": "user", "content": user_message}]}
 
     async def event_generator():
         async for event in graph.astream(inputs, config, stream_mode="messages"):
