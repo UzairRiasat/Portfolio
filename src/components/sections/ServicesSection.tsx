@@ -25,10 +25,10 @@ const ServicesSection = () => {
     },
     {
       icon: FiDatabase,
-      title: "Enterprise Systems & ERP",
+      title: "Business Systems & Integrations",
       description:
-        "Frappe and ERPNext customization, API services, and business workflow automation. Database optimization, reporting dashboards, and cross-functional team coordination.",
-      technologies: ["Frappe", "ERPNext", "MySQL Optimization", "Highcharts"],
+        "Backend services, data workflows, and reporting for business systems — including production ERP/Frappe experience. Database optimization, dashboards, and cross-functional delivery.",
+      technologies: ["Python", "MySQL", "API Design", "Highcharts"],
     },
     {
       icon: FiZap,
@@ -40,10 +40,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section
-      id="services"
-      className="relative w-full py-8 xl:py-10"
-    >
+    <section id="services" className="page-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <MotionSection>
           <SectionHeader

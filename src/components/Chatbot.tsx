@@ -22,7 +22,7 @@ export default function Chatbot() {
   const [mounted, setMounted] = useState(false)
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: "bot" | "user"; text: string }[]>([
-    { role: "bot", text: "Hi! I'm Uzair's assistant. Ask me anything about him." }
+    { role: "bot", text: "Hi! I'm Uzair's assistant. Ask about his skills, projects, experience, or how to contact him." }
   ])
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)

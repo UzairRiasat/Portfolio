@@ -11,7 +11,7 @@ const SectionHeader = ({
   title,
   description,
   align = "left",
-  className = "mb-10 xl:mb-14 2xl:mb-20",
+  className = "mb-6 xl:mb-8",
 }: SectionHeaderProps) => {
   const isCenter = align === "center";
 

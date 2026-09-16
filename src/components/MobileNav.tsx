@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
 import { navLinks, scrollToSection } from "@/lib/nav-links";
@@ -8,7 +8,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
-  const sectionIds = navLinks.map((link) => link.id);
+  const sectionIds = useMemo(() => navLinks.map((link) => link.id), []);
   const activeSection = useActiveSection(sectionIds);
 
   const handleLinkClick = (
@@ -17,7 +17,8 @@ const MobileNav = () => {
   ) => {
     e.preventDefault();
     setOpen(false);
-    scrollToSection(id);
+    // Wait for the sheet to close so layout/header height is stable on mobile
+    window.setTimeout(() => scrollToSection(id), 120);
   };
 
   return (

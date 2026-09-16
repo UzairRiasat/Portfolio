@@ -22,7 +22,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
   description:
-    "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
+    "Software Engineer building Python/FastAPI backends, SQL and APIs, AI features, and Next.js frontends. Production experience with business systems. Based in Islamabad, Pakistan.",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
     description:
-      "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
+      "Software Engineer building Python/FastAPI backends, SQL and APIs, AI features, and Next.js frontends. Production experience with business systems. Based in Islamabad, Pakistan.",
     url: "https://uzairriasat.netlify.app",
     siteName: "Uzair Riasat",
     images: [{ url: "https://uzairriasat.netlify.app/og-image.png", width: 1200, height: 630 }],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Uzair Riasat — Software Engineer · Backend & Full-Stack",
     description:
-      "Software Engineer building Python/FastAPI and Frappe backends, AI agents, and Next.js frontends. Based in Islamabad, Pakistan.",
+      "Software Engineer building Python/FastAPI backends, SQL and APIs, AI features, and Next.js frontends. Production experience with business systems. Based in Islamabad, Pakistan.",
     images: ["https://uzairriasat.netlify.app/og-image.png"],
   },
 };
@@ -70,9 +70,9 @@ export default function RootLayout({
           On wide monitors the background bleeds full-width but all
           content stays in this column — exactly like image 2.
         */}
+        <Header />
+        <HashScrollHandler />
         <div className="page-shell">
-          <Header />
-          <HashScrollHandler />
           <main className="relative z-10" style={{ paddingTop: "var(--header-h)" }}>
             {children}
           </main>

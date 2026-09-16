@@ -1,12 +1,8 @@
 /* CSS custom properties — defined before Tailwind so they're available everywhere */
 :root {
   --header-h: 64px;
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --header-h: 76px;
-  }
+  --scroll-gap: 12px;
+  --scroll-anchor: calc(var(--header-h) + var(--scroll-gap));
 }
 
 @tailwind base;
@@ -15,12 +11,12 @@
 
 @layer base {
   html {
-    scroll-padding-top: calc(var(--header-h) + 1rem);
+    scroll-padding-top: var(--scroll-anchor);
   }
 
   section[id] {
     position: relative;
-    scroll-margin-top: calc(var(--header-h) + 1rem);
+    scroll-margin-top: var(--scroll-anchor);
   }
 
   body {
@@ -49,6 +45,13 @@
     @apply mx-auto w-full relative z-10;
     max-width: 1200px;
     width: min(100%, 1200px);
+  }
+
+  .page-section {
+    @apply relative w-full pt-5 sm:pt-6 pb-10 sm:pb-12 lg:pb-14;
+    /* Fill the viewport under the header so the next section doesn't peek in */
+    min-height: calc(100dvh - var(--header-h));
+    scroll-margin-top: var(--scroll-anchor);
   }
 
   .gradient-text {

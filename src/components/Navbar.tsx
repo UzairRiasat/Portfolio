@@ -1,10 +1,11 @@
 'use client'
 
+import { useMemo } from "react"
 import { navLinks, scrollToSection } from "@/lib/nav-links"
 import { useActiveSection } from "@/hooks/useActiveSection"
 
 const Navbar = () => {
-  const sectionIds = navLinks.map((link) => link.id)
+  const sectionIds = useMemo(() => navLinks.map((link) => link.id), [])
   const activeSection = useActiveSection(sectionIds)
 
   return (
