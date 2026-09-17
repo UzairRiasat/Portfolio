@@ -8,9 +8,11 @@ type TiltCardProps = {
   children: React.ReactNode;
   className?: string;
   glare?: boolean;
+  /** When false, renders a static card (use for forms / typing areas) */
+  tilt?: boolean;
 };
 
-const TiltCard = ({ children, className, glare = true }: TiltCardProps) => {
+const TiltCard = ({ children, className, glare = true, tilt = true }: TiltCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
 
@@ -25,7 +27,7 @@ const TiltCard = ({ children, className, glare = true }: TiltCardProps) => {
   const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0,229,160,0.18), transparent 55%)`;
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!tilt || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);
@@ -36,6 +38,16 @@ const TiltCard = ({ children, className, glare = true }: TiltCardProps) => {
     x.set(0);
     y.set(0);
   };
+
+  if (!tilt) {
+    return (
+      <div className={cn("relative", className)}>
+        <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

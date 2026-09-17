@@ -1,7 +1,7 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
-import { FiSend, FiMessageCircle, FiX, FiMaximize2 } from "react-icons/fi"
+import { FiSend, FiMessageCircle, FiX } from "react-icons/fi"
 import ReactMarkdown from "react-markdown"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
@@ -27,90 +27,15 @@ export default function Chatbot() {
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement | null>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const dragRef = useRef<{ startX: number; startY: number; origLeft: number; origTop: number } | null>(null)
-  const resizeRef = useRef<{ startX: number; startY: number; origW: number; origH: number } | null>(null)
-  const [pos, setPos] = useState<{ left: number; top: number } | null>(null)
-  const [size, setSize] = useState<{ width: number; height: number } | null>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 2000)
-
-    // load saved UI state
-    try {
-      const raw = localStorage.getItem("chatbot_ui")
-      if (raw) {
-        const parsed = JSON.parse(raw)
-        if (parsed.pos) {
-          const left = Number(parsed.pos.left)
-          const top = Number(parsed.pos.top)
-          if (!Number.isNaN(left) && !Number.isNaN(top)) setPos({ left, top })
-        }
-        if (parsed.size) {
-          const width = Number(parsed.size.width)
-          const height = Number(parsed.size.height)
-          const maxWidth = window.innerWidth * 0.9
-          const maxHeight = Math.max(window.innerHeight * 0.6, 260)
-          if (!Number.isNaN(width) && !Number.isNaN(height) && width >= 300 && height >= 240) {
-            setSize({ width: Math.min(width, maxWidth), height: Math.min(height, maxHeight) })
-          }
-        }
-      }
-    } catch (e) {}
-
     return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, loading])
-
-  // persist pos/size
-  useEffect(() => {
-    const payload: any = {}
-    if (pos) payload.pos = pos
-    if (size) payload.size = size
-    if (Object.keys(payload).length) localStorage.setItem("chatbot_ui", JSON.stringify(payload))
-  }, [pos, size])
-
-  // global mouse/pointer handlers for drag/resize
-  useEffect(() => {
-    const onMove = (e: MouseEvent | PointerEvent) => {
-      if (dragRef.current) {
-        const dx = e.clientX - dragRef.current.startX
-        const dy = e.clientY - dragRef.current.startY
-        const newLeft = Math.max(8, Math.min(window.innerWidth - (containerRef.current?.offsetWidth || 320) - 8, dragRef.current.origLeft + dx))
-        const newTop = Math.max(8, Math.min(window.innerHeight - (containerRef.current?.offsetHeight || 380) - 8, dragRef.current.origTop + dy))
-        setPos({ left: newLeft, top: newTop })
-      }
-      if (resizeRef.current) {
-        const dx = e.clientX - resizeRef.current.startX
-        const dy = e.clientY - resizeRef.current.startY
-        const newW = Math.max(260, Math.min(window.innerWidth - 16, resizeRef.current.origW + dx))
-        const newH = Math.max(180, Math.min(window.innerHeight - 16, resizeRef.current.origH + dy))
-        setSize({ width: newW, height: newH })
-      }
-    }
-
-    const onEnd = () => {
-      dragRef.current = null
-      resizeRef.current = null
-    }
-
-    window.addEventListener('mousemove', onMove)
-    window.addEventListener('pointermove', onMove)
-    window.addEventListener('mouseup', onEnd)
-    window.addEventListener('pointerup', onEnd)
-    window.addEventListener('pointercancel', onEnd)
-
-    return () => {
-      window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('mouseup', onEnd)
-      window.removeEventListener('pointerup', onEnd)
-      window.removeEventListener('pointercancel', onEnd)
-    }
-  }, [])
 
   const handleSend = async () => {
     const userMessage = input.trim()
@@ -126,7 +51,7 @@ export default function Chatbot() {
       const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           message: userMessage,
           thread_id: getThreadId()
         }),
@@ -164,7 +89,6 @@ export default function Chatbot() {
 
   if (!mounted) return null
 
-  // render closed button
   if (!open) {
     return (
       <div className="fixed right-4 bottom-4 xl:right-14 xl:bottom-12 z-50 animate-in fade-in duration-500">
@@ -180,74 +104,28 @@ export default function Chatbot() {
     )
   }
 
-  const isMobileView = typeof window !== 'undefined' ? window.innerWidth <= 640 : false
-  const effectiveWidth = size
-    ? Math.min(size.width, window.innerWidth - 32, 320)
-    : Math.min(window.innerWidth * 0.9, 320)
-  const effectiveHeight = size
-    ? Math.min(size.height, window.innerHeight - 32, 384)
-    : Math.min(384, window.innerHeight * 0.75)
-  const useSavedPosition = pos && !isMobileView
-  const clampedLeft = useSavedPosition
-    ? Math.max(16, Math.min(pos.left, window.innerWidth - effectiveWidth - 16))
-    : undefined
-  const clampedTop = useSavedPosition
-    ? Math.max(16, Math.min(pos.top, window.innerHeight - effectiveHeight - 16))
-    : undefined
-
-  const containerStyle: React.CSSProperties = {
-    position: 'fixed',
-    zIndex: 50,
-    left: clampedLeft,
-    top: clampedTop,
-    right: useSavedPosition ? undefined : 16,
-    bottom: useSavedPosition ? undefined : 16,
-    width: effectiveWidth,
-    height: effectiveHeight,
-    maxWidth: 'calc(90vw)',
-    maxHeight: 384,
-    minWidth: 280,
-    minHeight: 384,
-  }
-
   return (
-    <div ref={containerRef} style={containerStyle} className="animate-in fade-in duration-500">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card shadow-card flex flex-col overflow-hidden h-full w-full" style={{ width: '100%', height: '100%' }}>
-        <div
-          onMouseDown={(e) => {
-            const el = containerRef.current
-            if (!el) return
-            const rect = el.getBoundingClientRect()
-            dragRef.current = { startX: e.clientX, startY: e.clientY, origLeft: rect.left, origTop: rect.top }
-            e.preventDefault()
-          }}
-          className="bg-white/[0.04] border-b border-white/[0.06] p-3 flex justify-between items-center cursor-move"
-        >
+    <div
+      className="fixed right-4 bottom-4 z-50 w-[min(90vw,320px)] h-96 animate-in fade-in duration-500"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="glass-card shadow-card flex flex-col overflow-hidden h-full w-full"
+      >
+        <div className="bg-white/[0.04] border-b border-white/[0.06] p-3 flex justify-between items-center">
           <div>
             <span className="font-display font-semibold text-sm">Uzair&apos;s Assistant</span>
             <p className="text-[10px] text-white/40 font-primary uppercase tracking-wider">Powered by AI</p>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              onPointerDown={(e) => {
-                e.stopPropagation()
-                const el = containerRef.current
-                if (!el) return
-                const rect = el.getBoundingClientRect()
-                resizeRef.current = { startX: e.clientX, startY: e.clientY, origW: rect.width, origH: rect.height }
-                e.preventDefault()
-              }}
-              className="w-10 h-10 bg-accent/20 border border-accent rounded-full cursor-nwse-resize hover:bg-accent transition-colors flex items-center justify-center text-primary"
-              aria-label="Resize chat"
-              title="Resize chat window"
-              type="button"
-            >
-              <FiMaximize2 className="w-4 h-4" />
-            </button>
-            <button onClick={() => setOpen(false)} className="text-white/50 hover:text-white transition-colors" type="button">
-              <FiX className="w-5 h-5" />
-            </button>
-          </div>
+          <button
+            onClick={() => setOpen(false)}
+            className="text-white/50 hover:text-white transition-colors"
+            type="button"
+            aria-label="Close chat"
+          >
+            <FiX className="w-5 h-5" />
+          </button>
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm scrollbar-dark">
