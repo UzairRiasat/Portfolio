@@ -127,7 +127,7 @@ const ContactSection = () => {
           </MotionSection>
 
           <MotionSection className="xl:col-span-3" delay={0.12}>
-            <TiltCard glare={false}>
+            <TiltCard tilt={false} glare={false}>
               <form onSubmit={handleSubmit} className="p-6 md:p-8 xl:p-10 space-y-5">
                 <h3 className="h3 mb-2">Send a message</h3>
                 <p className="text-white/40 text-sm mb-4">Fill out the form and I&apos;ll get back to you soon.</p>
@@ -185,7 +185,7 @@ const ContactSection = () => {
                   variant="default"
                   size="lg"
                   disabled={isSending}
-                  className="w-full flex items-center justify-center gap-2 disabled:opacity-50 shadow-glow-sm hover:scale-[1.01] transition-transform"
+                  className="w-full flex items-center justify-center gap-2 disabled:opacity-50 shadow-glow-sm"
                 >
                   {isSending ? "Sending..." : "Send Message"}
                   {!isSending && <FiSend />}
