@@ -29,10 +29,10 @@ def _normalize(msg) -> BaseMessage | None:
     return None
 
 
-def chatbot_node(state: AgentState):
+async def chatbot_node(state: AgentState):
     llm = get_llm()
     history = [m for m in (_normalize(msg) for msg in state["messages"]) if m is not None]
-    response = llm.invoke([SystemMessage(content=SYSTEM_PROMPT), *history])
+    response = await llm.ainvoke([SystemMessage(content=SYSTEM_PROMPT), *history])
     return {"messages": [response]}
 
 

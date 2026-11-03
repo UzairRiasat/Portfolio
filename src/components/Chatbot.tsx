@@ -57,6 +57,10 @@ export default function Chatbot() {
         }),
       })
 
+      if (!res.ok) {
+        throw new Error(`Server returned status ${res.status}`)
+      }
+
       if (!res.body) throw new Error("No response body from server")
       const reader = res.body.getReader()
       const decoder = new TextDecoder()
@@ -75,11 +79,19 @@ export default function Chatbot() {
           return updated
         })
       }
+
+      if (!aiText.trim()) {
+        setMessages(prev => {
+          const updated = [...prev]
+          updated[updated.length - 1].text = "Sorry, I couldn't generate a response right now. Please reach out to Uzair directly at uzairriasat510@gmail.com."
+          return updated
+        })
+      }
     } catch (err) {
       console.error("Error streaming response:", err)
       setMessages(prev => {
         const updated = [...prev]
-        updated[updated.length - 1].text = "Sorry, something went wrong."
+        updated[updated.length - 1].text = "Sorry, unable to connect to the assistant right now. Please try again later or contact Uzair directly at uzairriasat510@gmail.com."
         return updated
       })
     } finally {

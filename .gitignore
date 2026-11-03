@@ -6,6 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 venv/
+__pycache__/
+*.py[cod]
 .env
 .env*
 # testing
@@ -21,6 +23,9 @@ venv/
 # misc
 .DS_Store
 *.pem
+AGENTS.md
+.agent/
+.agents/
 
 # debug
 npm-debug.log*

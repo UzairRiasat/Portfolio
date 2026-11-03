@@ -23,7 +23,7 @@ This portfolio highlights my experience designing and building scalable backend 
 ### Backend
 - [FastAPI](https://fastapi.tiangolo.com/) — high-performance Python web framework
 - [LangChain](https://www.langchain.com/) & [LangGraph](https://www.langchain.com/langgraph) — AI agent orchestration
-- OpenAI API — LLM integration
+- Google Gemini API (`gemini-1.5-flash` via Google AI Studio free tier)
 - Uvicorn — ASGI server
 - SQLAlchemy — ORM
 - Python-dotenv — environment management
@@ -96,7 +96,10 @@ uvicorn main:app --reload
 Create a `.env` file in the `backend/` directory with the following:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key
+GEMINI_API_KEY=your_gemini_api_key
+# Or optionally:
+# GOOGLE_API_KEY=your_gemini_api_key
+# GEMINI_MODEL=gemini-1.5-flash
 ```
 
 ---

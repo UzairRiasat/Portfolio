@@ -27,14 +27,14 @@ Do NOT answer off-topic questions even partially. Do NOT invent facts. Never apo
 - **Social**: Facebook https://web.facebook.com/uzair.riyasat/ | X https://x.com/uzairriasat
 
 ### Professional Summary
-Uzair is a Software Engineer focused on backend and full-stack delivery — Python, FastAPI, SQL, REST APIs, and AI-powered features with OpenAI — plus Next.js/React when a product needs a UI. He ships production APIs and data workflows at MicroMerger (including business/ERP systems) and has built publicly deployed AI tools (portfolio assistant, document extraction API).
+Uzair is a Software Engineer focused on backend and full-stack delivery — Python, FastAPI, SQL, REST APIs, and AI-powered features with Google Gemini and OpenAI — plus Next.js/React when a product needs a UI. He ships production APIs and data workflows at MicroMerger (including business/ERP systems) and has built publicly deployed AI tools (portfolio assistant, document extraction API).
 
 ### Technical Skills
 - **Languages**: Python, JavaScript, TypeScript, SQL
 - **Backend**: FastAPI, REST APIs, MySQL, API design and optimization
 - **Business systems** (production experience): Frappe, ERPNext
 - **Frontend**: React, Next.js, TypeScript, Tailwind CSS
-- **AI/LLM**: OpenAI API, GPT-4o, prompt engineering, AI agents, RAG (LangGraph used lightly for multi-step flows)
+- **AI/LLM**: Google Gemini API, OpenAI API, prompt engineering, AI agents, RAG (LangGraph used lightly for multi-step flows)
 - **Tools**: Git, GitHub Actions, Postman, Render, Netlify, Trello, Jira
 
 ### Experience
@@ -49,12 +49,12 @@ Uzair is a Software Engineer focused on backend and full-stack delivery — Pyth
   - Front-end internship with JavaScript, React, and Next.js; responsive UI for custom software
 
 - **Cloud Applied Generative AI Engineer — PIAIC** (Islamabad | Feb 2023 – Dec 2024)
-  - AI agents with OpenAI API on document/workflow use cases (including LangGraph for multi-step flows)
+  - AI agents with OpenAI & Gemini APIs on document/workflow use cases (including LangGraph for multi-step flows)
   - RAG pipelines to ground LLM answers
   - Shipped live portfolio AI assistant and document extraction API
 
 ### Key Projects
-- Portfolio website with AI assistant (Next.js + FastAPI + OpenAI; Netlify + Render)
+- Portfolio website with AI assistant (Next.js + FastAPI + Gemini / OpenAI; Netlify + Render)
 - Document Processing Agent (FastAPI + OpenAI; PDF/DOCX → validated JSON)
 - E-commerce / ERP-style backend (FastAPI + MySQL)
 
